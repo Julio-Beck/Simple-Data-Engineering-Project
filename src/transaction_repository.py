@@ -19,7 +19,16 @@ class TransactionRepository:
         );
         """
         self.cursor.execute(query)
-    
+
+    def count_transaction(self, params: tuple = ()):
+        query = """
+           SELECT COUNT(*)
+           FROM transactions
+           WHERE transaction_type IN ('Saque', 'Compra Débito', 'Compra Crédito');
+        """
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
     def save(self, transactions: list[Transaction]):
         data = ((
             transaction.transaction_id,
