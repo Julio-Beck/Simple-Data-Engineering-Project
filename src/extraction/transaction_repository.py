@@ -1,5 +1,5 @@
 import sqlite3 
-from domain.transaction import Transaction
+from src.domain.models   import Transaction
 class TransactionRepository:
 
     def __init__(self, db_path: str):

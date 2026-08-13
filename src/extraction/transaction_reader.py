@@ -1,5 +1,5 @@
 import csv
-from domain.models import Transaction
+from src.domain.models import Transaction
 from datetime import datetime
 
 class TransactionReader:
@@ -22,4 +22,8 @@ class TransactionReader:
                 )
 
             return transactions
-
+        
+app = TransactionReader("initdata/transacoes.csv")
+app.read_transactions()
+for p in app.read_transactions():
+    print(p)
